@@ -48,8 +48,6 @@ export default function serverRenderer({
         return res.redirect(routerContext.url)
       }
 
-      console.log("SOURCE PAHTS", sourcePaths)
-
       res.send(
         renderToString(
           <HTML

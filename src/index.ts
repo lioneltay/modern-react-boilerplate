@@ -5,10 +5,15 @@ import {
 } from "./lib/async-component"
 import * as fs from "fs"
 
+console.log("index required")
+
 const stats = JSON.parse(
-  fs.readFileSync("/Users/lioneltay/dev/sandboxes/tapable/STATS.json", {
-    encoding: "utf8",
-  })
+  fs.readFileSync(
+    "/Users/lioneltay/dev/projects/modern-react-boilerplate/dist/STATS.json",
+    {
+      encoding: "utf8",
+    }
+  )
 )
 
 const cowModule = asyncComponent({
@@ -32,6 +37,6 @@ setTimeout(() => {
 
   const chunkNames = getChunkNames(stats, identifiers)
 
-  console.log(identifiers)
+  // console.log(identifiers)
   console.log(chunkNames)
-}, 1000)
+}, 2000)

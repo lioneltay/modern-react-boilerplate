@@ -35,6 +35,10 @@ module.exports = [
         },
       ],
     },
-    plugins: [new WebpackStatsPlugin()],
+    plugins: [
+      new WebpackStatsPlugin({
+        outputPath: relativeToRoot("./dist/STATS.json"),
+      }),
+    ],
   },
 ]

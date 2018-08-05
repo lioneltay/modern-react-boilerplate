@@ -1,1 +1,2 @@
-export default () => console.log("moo.js")
+console.log("moo required")
+export default () => {}

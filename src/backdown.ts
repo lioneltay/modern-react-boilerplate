@@ -1,1 +1,2 @@
-export default () => console.log('backdown module')
+console.log("backdown required")
+export default () => {}

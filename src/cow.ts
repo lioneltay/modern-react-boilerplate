@@ -1,9 +1,11 @@
-import { asyncComponent } from "lib/async-component/index"
+import { asyncComponent } from "lib/async-component"
 
-console.log("cow.js")
+console.log("cow required")
 
 const nestedModule = asyncComponent({
   loader: () => import("./nested/nested"),
 })
 
 nestedModule()
+
+export default () => {}

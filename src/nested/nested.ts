@@ -1,1 +1,2 @@
-export default () => console.log("nested.js was required")
+console.log("nested required")
+export default () => {}

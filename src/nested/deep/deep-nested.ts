@@ -1,9 +1,11 @@
-import { asyncComponent } from "lib/async-component/index"
+import { asyncComponent } from "lib/async-component"
 
-console.log("nested.js was required")
+console.log("deep-nested required")
 
 const backdownModule = asyncComponent({
   loader: () => import("backdown"),
 })
 
 backdownModule()
+
+export default () => {}

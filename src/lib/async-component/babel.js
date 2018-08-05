@@ -1,4 +1,33 @@
 const nodePath = require("path")
+/**
+ * OPTIONS
+ * resolve: string - The relative path from root to source directory
+ *  could potentially have multiple paths, would need to check that the file exists
+ */
+
+/**
+ * paths that are not absolute or relative like node modules
+ */
+function resolveRequired(path) {
+  return !(path.startsWith("./") || path.startsWith("/"))
+}
+
+function generateChunkName({ importPath, state }) {
+  const sourceFilePath = state.file.opts.sourceFileName
+  let chunkName = ""
+
+  if (resolveRequired(sourceFilePath)) {
+    if (!state.opts.resolve) {
+      throw Error("resolve is required when using resolved paths in webpack")
+    }
+
+    chunkName = nodePath.join(state.opts.resolve, importPath)
+  } else {
+    chunkName = nodePath.join(sourceFilePath, "../", importPath)
+  }
+
+  return chunkName
+}
 
 module.exports = function({ types: t }) {
   return {
@@ -60,14 +89,16 @@ module.exports = function({ types: t }) {
             },
           })
 
-          const sourceFilePath = state.file.opts.sourceFileName
           loaderPath.insertAfter(
             t.objectProperty(
               t.identifier("sourcePaths"),
               t.arrayExpression(
                 dynamicImportPaths.map(pathString =>
                   t.stringLiteral(
-                    nodePath.join(sourceFilePath, "../", pathString)
+                    generateChunkName({
+                      importPath: pathString,
+                      state,
+                    })
                   )
                 )
               )
@@ -77,7 +108,8 @@ module.exports = function({ types: t }) {
       },
 
       /**
-       * Add webpackChunkNames for better debuggability
+       * Add webpackChunkNames for better debuggability.
+       * This also populated the assetsByChunkNames field in the webpack stats object.
        */
       Import(path, state) {
         const callExpressionPath = path.parentPath
@@ -99,13 +131,14 @@ module.exports = function({ types: t }) {
             return
           }
 
-          const sourceFilePath = state.file.opts.sourceFileName
-          const pathString = arg.node.value
-          const chunkName = nodePath
-            .join(sourceFilePath, "../", pathString)
-            .replace(/\//g, "__")
+          const importPath = arg.node.value
 
-          arg.addComment("leading", ` webpackChunkName: '${chunkName}' `)
+          const chunkName = generateChunkName({ importPath, state })
+
+          arg.addComment(
+            "leading",
+            ` webpackChunkName: '${chunkName.replace(/\//g, "__")}' `
+          )
         }
       },
     },

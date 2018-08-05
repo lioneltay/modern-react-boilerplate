@@ -27,9 +27,20 @@ function extractIdentifiers() {
   return moduleSourcePaths
 }
 
+interface Stats {
+  chunks: Chunk[]
+  modules: Module[]
+  assetsByChunkName: AssetsByChunkName
+}
+
 interface Chunk {
-  id: string | number
+  // ids will be numbers unless webpackChunkName magic comment is used
+  id: string
   files: string[]
+}
+
+interface AssetsByChunkName {
+  [chunkName: string]: undefined | string | string[]
 }
 
 interface Module {
@@ -37,28 +48,46 @@ interface Module {
   chunks: Chunk["id"][]
 }
 
-function getChunkNames(stats: any, ids: string[]) {
-  function getModule(name: string, modules: Module[]): Module | undefined {
-    return modules.find(mod => new RegExp(`${name}\.*$`).test(mod.name))
+function getChunkNames(stats: Stats, moduleNames: string[]) {
+  function getModule(moduleName: string, stats: Stats): Module | undefined {
+    return stats.modules.find(mod =>
+      new RegExp(`${moduleName}\.*$`).test(mod.name)
+    )
   }
 
-  function getChunk(id: string | number, chunks: Chunk[]): Chunk | undefined {
-    return chunks.find(chunk => chunk.id === id)
+  function getModules(names: string[], stats: Stats): Module[] {
+    return names
+      .map(moduleName => getModule(moduleName, stats))
+      .filter(T.notEmpty)
   }
 
-  const usedModules = ids
-    .map(name => getModule(name, stats.modules))
-    .filter(T.notEmpty)
+  function getChunkAssets(
+    chunkName: string,
+    stats: Stats
+  ): string[] | undefined {
+    const assets = stats.assetsByChunkName[chunkName]
+    return assets === undefined
+      ? undefined
+      : Array.isArray(assets)
+        ? assets
+        : [assets]
+  }
 
-  const usedChunkIds = T.flatten(usedModules.map(mod => mod.chunks))
+  function getAllChunkAssets(chunkNames: string[], stats: Stats): string[] {
+    return T.flatten(
+      chunkNames
+        .map(chunkName => getChunkAssets(chunkName, stats))
+        .filter(T.notEmpty)
+    )
+  }
 
-  const usedChunks = usedChunkIds
-    .map(id => getChunk(id, stats.chunks))
-    .filter(T.notEmpty)
+  const usedModules = getModules(moduleNames, stats)
 
-  const usedFiles = T.flatten(usedChunks.map(chunk => chunk.files))
+  const usedChunkNames = T.flatten(usedModules.map(mod => mod.chunks))
 
-  return usedFiles
+  const assets = getAllChunkAssets(usedChunkNames, stats)
+
+  return assets
 }
 
 export { asyncComponent, extractIdentifiers, getChunkNames }

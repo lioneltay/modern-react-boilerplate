@@ -1,7 +1,23 @@
+require("colors")
 const express = require("express")
 const app = express()
 
 const PRODUCTION = process.env.NODE_ENV === "production"
+
+function startServer() {
+  const PORT = process.env.PORT || 8000
+  const mode = PRODUCTION ? "PRODUCTION" : "DEVELOPMENT"
+  return new Promise(resolvePromise => {
+    app.listen(PORT, () => {
+      console.log(
+        `\nServer listening at ${
+          `http://localhost:${PORT}`.magenta.underline
+        } in ${mode.green} mode.`
+      )
+      resolvePromise({ PORT })
+    })
+  })
+}
 
 /**
  * Serve public assets including favicons
@@ -16,7 +32,11 @@ if (PRODUCTION) {
 
   const clientStats = require("./dist/clientStats.json")
   app.use(require("./dist/server.bundle").default({ clientStats }))
-} else {
+
+  startServer()
+}
+
+if (!PRODUCTION) {
   const webpack = require("webpack")
   const webpackDevMiddleware = require("webpack-dev-middleware")
   const webpackHotMiddleware = require("webpack-hot-middleware")
@@ -50,10 +70,8 @@ if (PRODUCTION) {
    * This middleware is a catch all.
    */
   app.use(webpackHotServerMiddleware(multiCompiler))
-}
 
-const PORT = process.env.PORT || 8000
-const mode = PRODUCTION ? "PRODUCTION" : "DEVELOPMENT"
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT} in ${mode} mode.`)
-})
+  multiCompiler.hooks.done.tap("StartServer", () => {
+    startServer()
+  })
+}

@@ -93,6 +93,11 @@ export default class HTML extends React.Component<Props> {
   }
 
   render() {
+    const chunkNames = getChunkNames(
+      this.props.clientStats,
+      this.props.sourcePaths
+    )
+
     return (
       <html>
         <head>
@@ -115,9 +120,9 @@ export default class HTML extends React.Component<Props> {
             dangerouslySetInnerHTML={{ __html: this.props.appHtml }}
           />
 
-          {getChunkNames(this.props.clientStats, this.props.sourcePaths).map(
-            chunkName => <script key={chunkName} src={chunkName} />
-          )}
+          {chunkNames.map(chunkName => (
+            <script key={chunkName} src={chunkName} />
+          ))}
           <script src="client.bundle.js" />
         </body>
       </html>

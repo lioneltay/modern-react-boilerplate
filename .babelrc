@@ -1,3 +1,6 @@
 {
-  "plugins": ["@babel/plugin-syntax-dynamic-import", "./babel/my-plugin"]
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "./src/lib/async-component/babel"
+  ]
 }

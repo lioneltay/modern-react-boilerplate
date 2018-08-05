@@ -2,8 +2,8 @@ import {
   asyncComponent,
   extractIdentifiers,
   getChunkNames,
-} from "./async-component"
-const fs = require("fs")
+} from "./lib/async-component"
+import * as fs from "fs"
 
 const stats = JSON.parse(
   fs.readFileSync("/Users/lioneltay/dev/sandboxes/tapable/STATS.json", {
@@ -12,15 +12,15 @@ const stats = JSON.parse(
 )
 
 const cowModule = asyncComponent({
-  loader: () => import("./cow"),
+  loader: () => import("cow"),
 })
 
 const mooModule = asyncComponent({
-  loader: () => import("./moo"),
+  loader: () => import("moo"),
 })
 
 const deepModule = asyncComponent({
-  loader: () => import("./nested/deep/deep-nested"),
+  loader: () => import("nested/deep/deep-nested"),
 })
 
 deepModule()

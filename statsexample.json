@@ -1,0 +1,567 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.16.4",
+  "hash": "5aeba601d3dc0f5470df",
+  "time": 223,
+  "builtAt": 1533388444769,
+  "publicPath": "",
+  "outputPath": "/Users/lioneltay/dev/sandboxes/tapable/dist",
+  "assetsByChunkName": {
+    "main": "bundle.js"
+  },
+  "assets": [
+    {
+      "name": "bundle.js",
+      "size": 6707,
+      "chunks": [
+        "main"
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "emitted": true
+    },
+    {
+      "name": "0.bundle.js",
+      "size": 296,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [],
+      "emitted": true
+    },
+    {
+      "name": "1.bundle.js",
+      "size": 296,
+      "chunks": [
+        1
+      ],
+      "chunkNames": [],
+      "emitted": true
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        "main"
+      ],
+      "assets": [
+        "bundle.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "chunks": [
+        "main"
+      ],
+      "assets": [
+        "bundle.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "size": 22,
+      "names": [],
+      "files": [
+        "0.bundle.js"
+      ],
+      "hash": "736a7bdee90555716c55",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "childrenByOrder": {},
+      "modules": [
+        {
+          "id": "./src/cow.js",
+          "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/cow.js",
+          "name": "./src/cow.js",
+          "index": 2,
+          "index2": 2,
+          "size": 22,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "issuerId": "./src/index.js",
+          "issuerName": "./src/index.js",
+          "issuerPath": [
+            {
+              "id": "./src/index.js",
+              "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+              "name": "./src/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": "./src/index.js",
+              "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "import()",
+              "userRequest": "./cow",
+              "loc": "3:16-31"
+            }
+          ],
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "console.log(\"cow.js\");"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "moduleId": "./src/index.js",
+          "module": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "moduleName": "./src/index.js",
+          "loc": "3:16-31",
+          "request": "./cow",
+          "reasons": []
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "size": 22,
+      "names": [],
+      "files": [
+        "1.bundle.js"
+      ],
+      "hash": "8f73a7962177726633f3",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "childrenByOrder": {},
+      "modules": [
+        {
+          "id": "./src/moo.js",
+          "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/moo.js",
+          "name": "./src/moo.js",
+          "index": 3,
+          "index2": 3,
+          "size": 22,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            1
+          ],
+          "issuer": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "issuerId": "./src/index.js",
+          "issuerName": "./src/index.js",
+          "issuerPath": [
+            {
+              "id": "./src/index.js",
+              "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+              "name": "./src/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": "./src/index.js",
+              "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "import()",
+              "userRequest": "./moo",
+              "loc": "7:16-31"
+            }
+          ],
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "console.log(\"moo.js\");"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "moduleId": "./src/index.js",
+          "module": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "moduleName": "./src/index.js",
+          "loc": "7:16-31",
+          "request": "./moo",
+          "reasons": []
+        }
+      ]
+    },
+    {
+      "id": "main",
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "size": 597,
+      "names": [
+        "main"
+      ],
+      "files": [
+        "bundle.js"
+      ],
+      "hash": "221c0aab97cd1e112e3f",
+      "siblings": [],
+      "parents": [],
+      "children": [
+        0,
+        1
+      ],
+      "childrenByOrder": {},
+      "modules": [
+        {
+          "id": "./src/async-component.js",
+          "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/async-component.js",
+          "name": "./src/async-component.js",
+          "index": 1,
+          "index2": 0,
+          "size": 251,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            "main"
+          ],
+          "issuer": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "issuerId": "./src/index.js",
+          "issuerName": "./src/index.js",
+          "issuerPath": [
+            {
+              "id": "./src/index.js",
+              "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+              "name": "./src/index.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": "./src/index.js",
+              "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony side effect evaluation",
+              "userRequest": "./async-component",
+              "loc": "1:0-71"
+            },
+            {
+              "moduleId": "./src/index.js",
+              "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony import specifier",
+              "userRequest": "./async-component",
+              "loc": "2:18-32"
+            },
+            {
+              "moduleId": "./src/index.js",
+              "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony import specifier",
+              "userRequest": "./async-component",
+              "loc": "6:18-32"
+            },
+            {
+              "moduleId": "./src/index.js",
+              "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony import specifier",
+              "userRequest": "./async-component",
+              "loc": "11:20-38"
+            }
+          ],
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "let ids = [];\n\nfunction asyncComponent(options) {\n  console.log(options);\n  return () => {\n    ids = ids.concat(options.identifiers);\n  };\n}\n\nfunction extractIdentifiers() {\n  return ids;\n}\n\nmodule.exports = {\n  asyncComponent,\n  extractIdentifiers\n};"
+        },
+        {
+          "id": "./src/index.js",
+          "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "name": "./src/index.js",
+          "index": 0,
+          "index2": 1,
+          "size": 346,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            "main"
+          ],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "type": "single entry",
+              "userRequest": "./src/index.js",
+              "loc": "main"
+            }
+          ],
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": 0,
+          "source": "import { asyncComponent, extractIdentifiers } from \"./async-component\";\nconst cowModule = asyncComponent({\n  loader: () => import(\"./cow\"),\n  identifiers: [\"./cow\"]\n});\nconst mooModule = asyncComponent({\n  loader: () => import(\"./moo\"),\n  identifiers: [\"./moo\"]\n});\nmooModule();\nconst identifiers = extractIdentifiers();\nconsole.log(identifiers);"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "module": "",
+          "moduleIdentifier": "",
+          "moduleName": "",
+          "loc": "main",
+          "request": "./src/index.js",
+          "reasons": []
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "./src/async-component.js",
+      "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/async-component.js",
+      "name": "./src/async-component.js",
+      "index": 1,
+      "index2": 0,
+      "size": 251,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        "main"
+      ],
+      "issuer": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+      "issuerId": "./src/index.js",
+      "issuerName": "./src/index.js",
+      "issuerPath": [
+        {
+          "id": "./src/index.js",
+          "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "name": "./src/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": "./src/index.js",
+          "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "module": "./src/index.js",
+          "moduleName": "./src/index.js",
+          "type": "harmony side effect evaluation",
+          "userRequest": "./async-component",
+          "loc": "1:0-71"
+        },
+        {
+          "moduleId": "./src/index.js",
+          "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "module": "./src/index.js",
+          "moduleName": "./src/index.js",
+          "type": "harmony import specifier",
+          "userRequest": "./async-component",
+          "loc": "2:18-32"
+        },
+        {
+          "moduleId": "./src/index.js",
+          "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "module": "./src/index.js",
+          "moduleName": "./src/index.js",
+          "type": "harmony import specifier",
+          "userRequest": "./async-component",
+          "loc": "6:18-32"
+        },
+        {
+          "moduleId": "./src/index.js",
+          "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "module": "./src/index.js",
+          "moduleName": "./src/index.js",
+          "type": "harmony import specifier",
+          "userRequest": "./async-component",
+          "loc": "11:20-38"
+        }
+      ],
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "let ids = [];\n\nfunction asyncComponent(options) {\n  console.log(options);\n  return () => {\n    ids = ids.concat(options.identifiers);\n  };\n}\n\nfunction extractIdentifiers() {\n  return ids;\n}\n\nmodule.exports = {\n  asyncComponent,\n  extractIdentifiers\n};"
+    },
+    {
+      "id": "./src/cow.js",
+      "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/cow.js",
+      "name": "./src/cow.js",
+      "index": 2,
+      "index2": 2,
+      "size": 22,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+      "issuerId": "./src/index.js",
+      "issuerName": "./src/index.js",
+      "issuerPath": [
+        {
+          "id": "./src/index.js",
+          "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "name": "./src/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": "./src/index.js",
+          "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "module": "./src/index.js",
+          "moduleName": "./src/index.js",
+          "type": "import()",
+          "userRequest": "./cow",
+          "loc": "3:16-31"
+        }
+      ],
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "console.log(\"cow.js\");"
+    },
+    {
+      "id": "./src/index.js",
+      "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+      "name": "./src/index.js",
+      "index": 0,
+      "index2": 1,
+      "size": 346,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        "main"
+      ],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "issuerPath": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": null,
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "type": "single entry",
+          "userRequest": "./src/index.js",
+          "loc": "main"
+        }
+      ],
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": 0,
+      "source": "import { asyncComponent, extractIdentifiers } from \"./async-component\";\nconst cowModule = asyncComponent({\n  loader: () => import(\"./cow\"),\n  identifiers: [\"./cow\"]\n});\nconst mooModule = asyncComponent({\n  loader: () => import(\"./moo\"),\n  identifiers: [\"./moo\"]\n});\nmooModule();\nconst identifiers = extractIdentifiers();\nconsole.log(identifiers);"
+    },
+    {
+      "id": "./src/moo.js",
+      "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/moo.js",
+      "name": "./src/moo.js",
+      "index": 3,
+      "index2": 3,
+      "size": 22,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+      "issuerId": "./src/index.js",
+      "issuerName": "./src/index.js",
+      "issuerPath": [
+        {
+          "id": "./src/index.js",
+          "identifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "name": "./src/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": "./src/index.js",
+          "moduleIdentifier": "/Users/lioneltay/dev/sandboxes/tapable/node_modules/babel-loader/lib/index.js!/Users/lioneltay/dev/sandboxes/tapable/src/index.js",
+          "module": "./src/index.js",
+          "moduleName": "./src/index.js",
+          "type": "import()",
+          "userRequest": "./moo",
+          "loc": "7:16-31"
+        }
+      ],
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "console.log(\"moo.js\");"
+    }
+  ],
+  "filteredModules": 0,
+  "children": []
+}

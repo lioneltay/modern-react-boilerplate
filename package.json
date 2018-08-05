@@ -1,0 +1,27 @@
+{
+  "name": "ssr-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.56",
+    "@babel/core": "^7.0.0-beta.56",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.56",
+    "babel-loader": "^8.0.0-beta.4",
+    "rimraf": "^2.6.2",
+    "webpack": "^4.16.4",
+    "webpack-cli": "^3.1.0"
+  },
+  "scripts": {
+    "start": "npm run clean && webpack",
+    "run": "npm run clean && webpack && node ./dist/bundle.js",
+    "babel": "babel ./src/index.js -o RESULT.js",
+    "clean": "rimraf ./dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

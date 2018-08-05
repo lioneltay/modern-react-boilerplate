@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run clean && webpack",
+    "start": "NODE_ENV=production node server.js",
     "dev": "npm run clean && node server.js",
+    "build": "npm run clean && NODE_ENV=production webpack",
     "run": "npm run clean && webpack && node ./dist/bundle.js",
     "babeltest": "tsc src/pages/index.tsx --module esnext --jsx preserve --target esnext; babel ./src/pages/index.js -o RESULT.js",
     "clean": "rimraf ./dist"

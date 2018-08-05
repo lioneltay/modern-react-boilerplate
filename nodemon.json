@@ -1,0 +1,12 @@
+{
+  "ignore": [".git", "node_modules", "dist"],
+  "verbose": true,
+  "execMap": {
+    "js": "node --harmony",
+    "ts": "ts-node"
+  },
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "js jsx json ts tsx css graphql"
+}

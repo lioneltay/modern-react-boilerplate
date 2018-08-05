@@ -2,5 +2,6 @@
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
     ["./src/lib/async-component/babel", { "resolve": "./src" }]
-  ]
+  ],
+  "presets": ["@babel/preset-react"]
 }

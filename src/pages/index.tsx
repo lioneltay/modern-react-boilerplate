@@ -18,7 +18,7 @@ export default class RootPage extends React.Component<{}, State> {
   render() {
     return (
       <div>
-        <h1>Hello from the RootPage woot</h1>
+        <h1>well</h1>
         <button onClick={() => this.setState({ count: this.state.count + 1 })}>
           +
         </button>

@@ -56,6 +56,7 @@ function asyncComponent({
 
   return class AsyncComponent extends React.Component {
     loadedComponentUsedInRender = false
+    mounted = false
 
     constructor(props: any) {
       super(props)
@@ -63,10 +64,14 @@ function asyncComponent({
       addSourcePaths(sourcePaths)
 
       loadComponent().then(() => {
-        if (!this.loadedComponentUsedInRender) {
+        if (!this.loadedComponentUsedInRender && this.mounted) {
           this.forceUpdate()
         }
       })
+    }
+
+    componentDidMount() {
+      this.mounted = true
     }
 
     render() {

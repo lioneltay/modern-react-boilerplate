@@ -13,17 +13,17 @@ function resolveRequired(path) {
 }
 
 function generateChunkName({ importPath, state }) {
-  const sourceFilePath = state.file.opts.sourceFileName
+  const sourceFileName = state.file.opts.sourceFileName
   let chunkName = ""
 
-  if (resolveRequired(sourceFilePath)) {
+  if (resolveRequired(importPath)) {
     if (!state.opts.resolve) {
       throw Error("resolve is required when using resolved paths in webpack")
     }
 
     chunkName = nodePath.join(state.opts.resolve, importPath)
   } else {
-    chunkName = nodePath.join(sourceFilePath, "../", importPath)
+    chunkName = nodePath.join(sourceFileName, "../", importPath)
   }
 
   return chunkName

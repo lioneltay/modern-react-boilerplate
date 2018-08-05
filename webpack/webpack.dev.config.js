@@ -1,6 +1,6 @@
 const path = require("path")
 const webpack = require("webpack")
-const WebpackStatsPlugin = require("../src/lib/async-component/webpack-stats-plugin")
+// const WebpackStatsPlugin = require("../src/lib/async-component/webpack-stats-plugin")
 
 const relativeToRoot = relativePath =>
   path.resolve(__dirname, "../", relativePath)
@@ -41,9 +41,9 @@ module.exports = [
       ],
     },
     plugins: [
-      new WebpackStatsPlugin({
-        outputPath: relativeToRoot("./dist/STATS.json"),
-      }),
+      // new WebpackStatsPlugin({
+      //   outputPath: relativeToRoot("./dist/STATS.json"),
+      // }),
       new webpack.HotModuleReplacementPlugin(),
     ],
   },
@@ -81,8 +81,8 @@ module.exports = [
       ],
     },
     plugins: [
-      new WebpackStatsPlugin({
-        outputPath: relativeToRoot("./dist/STATS.json"),
+      new webpack.optimize.LimitChunkCountPlugin({
+        maxChunks: 1,
       }),
     ],
   },

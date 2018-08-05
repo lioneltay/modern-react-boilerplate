@@ -3,8 +3,6 @@ import { Switch, Route, Link } from "react-router-dom"
 import { asyncComponent } from "lib/async-component"
 
 const PromotionPage = asyncComponent({ loader: () => import("./promotion") })
-// const AboutPage = asyncComponent({ loader: () => import("./about") })
-// const PromotionPage = asyncComponent({ loader: () => import("pages/promotion") })
 const AboutPage = asyncComponent({ loader: () => import("pages/about") })
 
 const initialState = {
@@ -18,7 +16,7 @@ export default class RootPage extends React.Component<{}, State> {
   render() {
     return (
       <div>
-        <h1>well</h1>
+        <h1>cool beans</h1>
         <button onClick={() => this.setState({ count: this.state.count + 1 })}>
           +
         </button>

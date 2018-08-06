@@ -16,7 +16,7 @@ function addLoader(sourcePath: string, loader: ComponentLoader): void {
   loaderMap[sourcePath] = loader
 }
 
-type ComponentLoader = () => Promise<
+export type ComponentLoader = () => Promise<
   React.ComponentType | { default: React.ComponentType }
 >
 

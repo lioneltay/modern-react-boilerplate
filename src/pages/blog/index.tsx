@@ -2,14 +2,8 @@ import * as React from "react"
 import { Link, Route } from "react-router-dom"
 import styled from "styled-components"
 import { Helmet } from "react-helmet"
-import { asyncComponent } from "lib/async-component"
-
-const MappedTypesPage = asyncComponent({
-  loader: () => import("./mapped-types.blog.md"),
-})
-const TypescriptExtendsPage = asyncComponent({
-  loader: () => import("./typescript-extends.blog.md"),
-})
+import { blogs } from "./blogs"
+import { format } from "date-fns"
 
 const BlogLinks = styled.div`
   display: flex;
@@ -25,8 +19,15 @@ class Content extends React.Component {
         <h1>Blog</h1>
 
         <BlogLinks>
-          <Link to="/blog/mapped-types">Typescript: Mapped Types</Link>
-          <Link to="/blog/typescript-extends">Typecript: Extends</Link>
+          {blogs.map(blog => (
+            <div>
+              <span>{format(blog.date, "DD/MM/YY")}:</span>
+
+              <Link key={blog.route} to={blog.route}>
+                {blog.label}
+              </Link>
+            </div>
+          ))}
         </BlogLinks>
       </div>
     )
@@ -45,11 +46,13 @@ export default class BlogPage extends React.Component {
         <Route path="/blog/*" render={() => <Link to="/blog">Back</Link>} />
 
         <Route exact path="/blog" component={Content} />
-        <Route path="/blog/mapped-types" component={MappedTypesPage} />
-        <Route
-          path="/blog/typescript-extends"
-          component={TypescriptExtendsPage}
-        />
+        {blogs.map(blog => (
+          <Route
+            key={blog.route}
+            path={blog.route}
+            component={blog.component}
+          />
+        ))}
       </Container>
     )
   }

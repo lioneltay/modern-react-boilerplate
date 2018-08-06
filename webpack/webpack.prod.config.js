@@ -1,10 +1,13 @@
+const relativeToRoot = relativePath =>
+  path.resolve(__dirname, "../", relativePath)
+
 const path = require("path")
 const webpack = require("webpack")
 const webpackNodeExternals = require("webpack-node-externals")
-const WebpackStatsPlugin = require("../src/lib/async-component/webpack-stats-plugin")
-
-const relativeToRoot = relativePath =>
-  path.resolve(__dirname, "../", relativePath)
+const { StatsWriterPlugin } = require("webpack-stats-plugin")
+const { statsTransform } = require(relativeToRoot(
+  "./src/lib/async-component/stats-transform"
+))
 
 const common = {
   mode: "production",
@@ -26,9 +29,13 @@ const common = {
           },
           {
             loader: "ts-loader",
-            options: { transpileOnly: false },
+            options: { transpileOnly: true },
           },
         ],
+      },
+      {
+        test: /.md$/,
+        loader: ["raw-loader"],
       },
     ],
   },
@@ -44,13 +51,16 @@ module.exports = [
       filename: "client.bundle.js",
       chunkFilename: "[name].chunk.js",
       path: relativeToRoot("./dist"),
+      publicPath: "/",
     },
     plugins: [
       new webpack.DefinePlugin({
         "process.env.NODE_ENV": JSON.stringify("production"),
       }),
-      new WebpackStatsPlugin({
-        outputPath: relativeToRoot("./dist/clientStats.json"),
+      new StatsWriterPlugin({
+        filename: "clientStats.json",
+        fields: ["chunks", "modules"],
+        transform: statsTransform,
       }),
     ],
   },
@@ -66,6 +76,7 @@ module.exports = [
       chunkFilename: "[name].chunk.js",
       path: relativeToRoot("./dist"),
       libraryTarget: "commonjs2",
+      publicPath: "/",
     },
     plugins: [
       new webpack.optimize.LimitChunkCountPlugin({

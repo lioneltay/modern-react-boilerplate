@@ -16,7 +16,7 @@ export function ensureStartsWith(prefix: string, str: string): string {
   return str.startsWith(prefix) ? str : `${prefix}${str}`
 }
 
-export function partition<T>(pred: (val: T) => boolean, arr: T[]): T[][] {
+export function partition<T>(pred: (val: T) => boolean, arr: T[]): [T[], T[]] {
   const truthy: T[] = []
   const falsey: T[] = []
 

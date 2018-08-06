@@ -5,14 +5,14 @@ import SyntaxHighlighter from "react-syntax-highlighter/prism"
 import * as styles from "react-syntax-highlighter/styles/prism"
 import { Helmet } from "react-helmet"
 
-import markdownText from './test.md'
+import markdownText from "./test.md"
 
 interface CodeBlockProps {
   value: string
   language: string
 }
 
-const codeBlocks = Object.keys(styles).map(styleName => {
+const codeBlocks = R.keys(styles).map(styleName => {
   const style = styles[styleName]
 
   return class CodeBlock extends React.PureComponent<CodeBlockProps> {

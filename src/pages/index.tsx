@@ -17,7 +17,7 @@ const CardGrid = styled.div`
   grid-template-columns: 1fr 1fr;
 `
 
-const _Card = styled.div`
+const Card = styled.div`
   height: 150px;
   background: white;
   padding: 15px;
@@ -32,30 +32,32 @@ const _Card = styled.div`
   }
 `
 
-interface CardProps {
-  history: any
-  children: React.ReactNode
+interface GoCardProps {
   to: string
 }
 
-const Card: React.SFC<CardProps> = withRouter(({ history, children, to }) => (
-  <_Card onClick={() => history.push(to)}>{children}</_Card>
-))
+const GoCard: React.SFC<GoCardProps> = ({ to, children }) => (
+  <Route
+    render={({ history }) => (
+      <Card onPointerDown={() => history.push(to)}>{children}</Card>
+    )}
+  />
+)
 
 class Content extends React.Component {
   render() {
     return (
       <div>
         <CardGrid>
-          <Card to="/editor-themes">
+          <GoCard to="/editor-themes">
             <h3>Editor Themes</h3>
-          </Card>
-          <Card to="/blog/mapped-types">
+          </GoCard>
+          <GoCard to="/blog/mapped-types">
             <h3>Blog: Mapped Types</h3>
-          </Card>
-          <Card to="/blog/typescript-extends">
+          </GoCard>
+          <GoCard to="/blog/typescript-extends">
             <h3>Blog: Typescript Extends</h3>
-          </Card>
+          </GoCard>
         </CardGrid>
       </div>
     )

@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy:prod": "gcloud app deploy --project=lionel-tay",
-    "browse:prod": "gcloud app browse --project=lionel-tay",
+    "deploy-process": "npm run build && npm run deploy && npm run browse",
+    "deploy": "gcloud app deploy --project=lionel-tay",
+    "browse": "gcloud app browse --project=lionel-tay",
     "start": "NODE_ENV=production node server.js",
     "dev": "npm run clean && node server.js",
     "build": "npm run clean && NODE_ENV=production webpack",

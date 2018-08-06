@@ -15,3 +15,12 @@ export function notEmpty<T>(value: T | null | undefined): value is T {
 export function ensureStartsWith(prefix: string, str: string): string {
   return str.startsWith(prefix) ? str : `${prefix}${str}`
 }
+
+export function partition<T>(pred: (val: T) => boolean, arr: T[]): T[][] {
+  const truthy: T[] = []
+  const falsey: T[] = []
+
+  arr.forEach(val => (pred(val) ? truthy.push(val) : falsey.push(val)))
+
+  return [truthy, falsey]
+}

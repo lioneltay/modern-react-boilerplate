@@ -1,10 +1,15 @@
 import * as React from "react"
 import { Link, Route } from "react-router-dom"
-import { Markdown } from "components"
 import styled from "styled-components"
+import { Helmet } from "react-helmet"
+import { asyncComponent } from "lib/async-component"
 
-import extendsBlog from "./extends.md"
-import mappedTypesBlog from "./mapped-types.md"
+const MappedTypesPage = asyncComponent({
+  loader: () => import("./mapped-types"),
+})
+const TypescriptExtendsPage = asyncComponent({
+  loader: () => import("./typescript-extends"),
+})
 
 const BlogLinks = styled.div`
   display: flex;
@@ -15,6 +20,8 @@ class Content extends React.Component {
   render() {
     return (
       <div>
+        <Helmet title="Lionel Tay - Blog" />
+
         <h1>Blog</h1>
 
         <BlogLinks>
@@ -38,13 +45,10 @@ export default class BlogPage extends React.Component {
         <Route path="/blog/*" render={() => <Link to="/blog">Back</Link>} />
 
         <Route exact path="/blog" component={Content} />
-        <Route
-          path="/blog/mapped-types"
-          render={() => <Markdown source={mappedTypesBlog} />}
-        />
+        <Route path="/blog/mapped-types" component={MappedTypesPage} />
         <Route
           path="/blog/typescript-extends"
-          render={() => <Markdown source={extendsBlog} />}
+          component={TypescriptExtendsPage}
         />
       </Container>
     )

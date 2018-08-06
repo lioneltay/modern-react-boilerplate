@@ -1,6 +1,7 @@
 import * as React from "react"
 import { getChunkNames } from "lib/async-component"
 import * as T from "lib/typedash"
+import { Helmet } from "react-helmet"
 
 interface Props {
   clientStats: any
@@ -100,10 +101,14 @@ export default class HTML extends React.Component<Props> {
       this.props.sourcePaths
     )
 
+    const helmet = Helmet.renderStatic()
+
     return (
       <html>
         <head>
-          <title>Modern React Boilerplate</title>
+          {helmet.title.toComponent()}
+          {helmet.meta.toComponent()}
+
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <script
             dangerouslySetInnerHTML={{
@@ -125,7 +130,7 @@ export default class HTML extends React.Component<Props> {
           />
 
           {chunkNames.map(chunkName => (
-            <script key={chunkName} src={T.ensureStartsWith('/', chunkName)} />
+            <script key={chunkName} src={T.ensureStartsWith("/", chunkName)} />
           ))}
           <script src={T.ensureStartsWith("/", "client.bundle.js")} />
         </body>

@@ -125,17 +125,20 @@ async function preloadAll(): Promise<void> {
 
 declare const __USED_SOURCE_PATHS__: string[]
 async function preloadReady() {
+  /**
+   * Queue, keep going until all sourcePaths are loaded
+   */
   let sourcePathsToLoad = [...__USED_SOURCE_PATHS__]
 
   async function recursivePreload() {
-    const theLoaders = sourcePathsToLoad.map(
-      sourcePath => loaderMap[sourcePath]
-    )
-    if (theLoaders.length === 0) {
+    const [sourcePathsWithLoaders, sourcePathsWithoutLoaders] = T.partition(sourcePath => !!loaderMap[sourcePath], sourcePathsToLoad)
+
+    if (sourcePathsToLoad.length === 0) {
       return
     }
-    sourcePathsToLoad = []
-    await Promise.all(theLoaders.map(loader => loader()))
+
+    sourcePathsToLoad = sourcePathsWithoutLoaders
+    await Promise.all(sourcePathsWithLoaders.map(sourcePath => loaderMap[sourcePath]()))
     await recursivePreload()
   }
 

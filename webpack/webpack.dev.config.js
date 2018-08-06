@@ -1,6 +1,6 @@
 const path = require("path")
 const webpack = require("webpack")
-const HardSourceWebpackPlugin = require("hard-source-webpack-plugin")
+// const HardSourceWebpackPlugin = require("hard-source-webpack-plugin")
 
 const webpackNodeExternals = require("webpack-node-externals")
 
@@ -56,7 +56,7 @@ module.exports = [
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
-      new HardSourceWebpackPlugin(),
+      // new HardSourceWebpackPlugin(),
     ],
   },
 
@@ -77,7 +77,7 @@ module.exports = [
       new webpack.optimize.LimitChunkCountPlugin({
         maxChunks: 1,
       }),
-      new HardSourceWebpackPlugin(),
+      // new HardSourceWebpackPlugin(),
     ],
   },
 ]

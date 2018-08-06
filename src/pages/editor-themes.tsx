@@ -3,6 +3,7 @@ import * as Markdown from "react-markdown"
 import * as R from "ramda"
 import SyntaxHighlighter from "react-syntax-highlighter/prism"
 import * as styles from "react-syntax-highlighter/styles/prism"
+import { Helmet } from "react-helmet"
 
 import markdownText from "./test.md"
 
@@ -38,6 +39,8 @@ export default class MarkdownDemo extends React.Component {
   render() {
     return (
       <div style={{ padding: 50 }}>
+        <Helmet title="Editor Themes" />
+
         {codeBlocks.map(codeBlock => (
           <Markdown source={markdownText} renderers={{ code: codeBlock }} />
         ))}

@@ -2,6 +2,7 @@ import * as React from "react"
 import { Switch, Route, Link } from "react-router-dom"
 import { asyncComponent } from "lib/async-component"
 import styled from "styled-components"
+import { Helmet } from "react-helmet"
 
 const BlogPage = asyncComponent({ loader: () => import("pages/blog") })
 const EditorThemesPage = asyncComponent({
@@ -61,6 +62,8 @@ export default class RootPage extends React.Component {
   render() {
     return (
       <div>
+        <Helmet title="Lionel Tay" />
+
         <Header>
           <Link to="/">Home</Link>
           <Link to="/blog">Blog</Link>

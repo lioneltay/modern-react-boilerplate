@@ -5,10 +5,10 @@ import { Helmet } from "react-helmet"
 import { asyncComponent } from "lib/async-component"
 
 const MappedTypesPage = asyncComponent({
-  loader: () => import("./mapped-types"),
+  loader: () => import("./mapped-types.blog.md"),
 })
 const TypescriptExtendsPage = asyncComponent({
-  loader: () => import("./typescript-extends"),
+  loader: () => import("./typescript-extends.blog.md"),
 })
 
 const BlogLinks = styled.div`

@@ -32,8 +32,21 @@ const common = {
         ],
       },
       {
-        test: /.md$/,
-        loader: ["raw-loader"],
+        test: /.blog.md$/,
+        loader: [
+          {
+            loader: "babel-loader",
+            options: {
+              cacheDirectory: true,
+            },
+          },
+          relativeToRoot("./webpack/markdown-blog-loader"),
+        ],
+      },
+      {
+        test: modulePath =>
+          modulePath.endsWith(".md") && !modulePath.endsWith("blog.md"),
+        loader: "raw-loader",
       },
     ],
   },

@@ -9,11 +9,11 @@ import styled, { injectGlobal } from "styled-components"
 // Switch to 'styled.div' to get intellisense
 // styled.div`
 injectGlobal`
-  /* * {
-    margin: 0;
-    padding: 0;
+  * {
+    /* margin: 0;
+    padding: 0; */
     box-sizing: border-box;
-  } */
+  }
 
   body {
     font-family: "Helvetica Neue", Arial;

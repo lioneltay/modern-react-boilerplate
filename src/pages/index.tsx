@@ -3,8 +3,10 @@ import { Switch, Route, Link } from "react-router-dom"
 import { asyncComponent } from "lib/async-component"
 import styled from "styled-components"
 
-const PromotionPage = asyncComponent({ loader: () => import("./promotion") })
-const AboutPage = asyncComponent({ loader: () => import("pages/about") })
+const BlogPage = asyncComponent({ loader: () => import("pages/blog") })
+const EditorThemesPage = asyncComponent({
+  loader: () => import("pages/editor-themes"),
+})
 
 const initialState = {
   count: 0,
@@ -22,7 +24,7 @@ const Box = styled.div<BoxProps>`
 `
 
 type State = Readonly<typeof initialState>
-export default class RootPage extends React.Component<{}, State> {
+class Content extends React.Component<{}, State> {
   state = initialState
 
   render() {
@@ -36,22 +38,40 @@ export default class RootPage extends React.Component<{}, State> {
 
         <hr />
 
-        <div>
-          <Link to="/about">About</Link>
-          <Link to="/promotion">Promotion</Link>
-        </div>
-
         <div style={{ display: "flex" }}>
           <Box highlighted={true} />
           <Box highlighted={false} />
           <Box highlighted={false} />
           <Box highlighted={true} />
         </div>
+      </div>
+    )
+  }
+}
+
+const Header = styled.header`
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f3f3f3;
+`
+
+export default class RootPage extends React.Component {
+  render() {
+    return (
+      <div>
+        <Header>
+          <Link to="/">Home</Link>
+          <Link to="/blog">Blog</Link>
+          <Link to="/editor-themes">Editor Themes</Link>
+        </Header>
 
         <Switch>
-          <Route path="/about" component={AboutPage} />
-          <Route path="/promotion" component={PromotionPage} />
-          <Route render={() => <div>Hello</div>} />
+          <Route exact path="/" component={Content} />
+          <Route path="/blog" component={BlogPage} />
+          <Route path="/editor-themes" component={EditorThemesPage} />
+          <Route render={() => <div>Not Found</div>} />
         </Switch>
       </div>
     )

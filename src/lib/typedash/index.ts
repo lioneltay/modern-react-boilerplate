@@ -11,3 +11,7 @@ export function isNil<T>(
 export function notEmpty<T>(value: T | null | undefined): value is T {
   return value !== null && value !== undefined
 }
+
+export function ensureStartsWith(prefix: string, str: string): string {
+  return str.startsWith(prefix) ? str : `${prefix}${str}`
+}

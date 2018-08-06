@@ -31,6 +31,10 @@ const common = {
           },
         ],
       },
+      {
+        test: /.md$/,
+        loader: ["raw-loader"],
+      },
     ],
   },
 }
@@ -48,6 +52,7 @@ module.exports = [
       filename: "client.bundle.js",
       chunkFilename: "[name].chunk.js",
       path: relativeToRoot("./dist"),
+      publicPath: "/",
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
@@ -66,6 +71,7 @@ module.exports = [
       chunkFilename: "[name].chunk.js",
       path: relativeToRoot("./dist"),
       libraryTarget: "commonjs2",
+      publicPath: "/",
     },
     plugins: [
       new webpack.optimize.LimitChunkCountPlugin({

@@ -1,5 +1,6 @@
 import * as React from "react"
 import { getChunkNames } from "lib/async-component"
+import * as T from "lib/typedash"
 
 interface Props {
   clientStats: any
@@ -124,9 +125,9 @@ export default class HTML extends React.Component<Props> {
           />
 
           {chunkNames.map(chunkName => (
-            <script key={chunkName} src={chunkName} />
+            <script key={chunkName} src={T.ensureStartsWith('/', chunkName)} />
           ))}
-          <script src="client.bundle.js" />
+          <script src={T.ensureStartsWith("/", "client.bundle.js")} />
         </body>
       </html>
     )

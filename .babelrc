@@ -2,7 +2,13 @@
   "plugins": [
     "react-hot-loader/babel",
     "@babel/plugin-syntax-dynamic-import",
-    ["./src/lib/async-component/babel", { "resolve": "./src" }]
+    ["./src/lib/async-component/babel", { "resolve": "./src" }],
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr": true
+      }
+    ]
   ],
   "presets": ["@babel/preset-react"]
 }

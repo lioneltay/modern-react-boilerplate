@@ -71,7 +71,11 @@ if (!PRODUCTION) {
    */
   app.use(webpackHotServerMiddleware(multiCompiler))
 
+  let serverStarted = false
   multiCompiler.hooks.done.tap("StartServer", () => {
-    startServer()
+    if (!serverStarted) {
+      startServer()
+    }
+    serverStarted = true
   })
 }

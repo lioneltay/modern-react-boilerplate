@@ -6,6 +6,7 @@ interface Props {
   serverStats: any
   appHtml: string
   sourcePaths: string[]
+  styleElements: React.ReactNode[]
 }
 
 export default class HTML extends React.Component<Props> {
@@ -112,6 +113,8 @@ export default class HTML extends React.Component<Props> {
           />
 
           {this.faviconLinks()}
+
+          {this.props.styleElements}
         </head>
 
         <body>

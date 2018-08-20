@@ -68,7 +68,7 @@ module.exports = [
       publicPath: "/",
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin(),
+      new webpack.HotModuleReplacementPlugin({ multiStep: true }),
       // new HardSourceWebpackPlugin(),
     ],
   },

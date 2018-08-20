@@ -35,11 +35,10 @@ const superman: Superman = {
 }
 ```
 
-In this case we can treat `extends` as it sounds, in the sense of "more things". We'll see later that this might not always be the most intuitive intepretation.
+In this case we can treat extends as it sounds, in the sense of "more things". We'll see later that this might not always be the most intuitive intepretation.
 
 ## Generics
-
-Generics allow you to define types with a more generic... behaviour.
+Generics allow you to define types with a more generic… behaviour.
 
 ```typescript
 // An interface for a linked list containing a consistent but unspecified type T.
@@ -58,7 +57,7 @@ In the `LinkedList<T>` interface, we see that the type defines the structure of 
 
 In this way the generic provides a way to write more reusable types.
 
-The function example of `identity` has a signature of `T => T` where `T` is could be anything. Although this is a trivial example, in this case the generic provides more than just reusability. Since the function can not know what `T` is in advance, it is extremely restricted in what it can do. For example the following implementations would result in errors.
+The function example of identity has a signature of `T => T` where `T` is could be anything. Although this is a trivial example, in this case the generic provides more than just reusability. Since the function can not know what `T` is in advance, it is extremely restricted in what it can do. For example the following implementations would result in errors.
 
 ```typescript
 function identity<T>(input: T): T {
@@ -75,9 +74,9 @@ function identity<T>(input: T): T {
 }
 ```
 
-We see that the signature of `T => T` for any `T` alone tells us a lot about the function. By being generic in its input and return value, we are narrowing down the possible implementations. Infact, the only possible implementation of `T => T` is the `identity` function that does nothing but return what it is given.
+We see that the signature of `T => T` for any `T` alone tells us a lot about the function. By being generic in its input and return value, we are narrowing down the possible implementations. Infact, the only possible implementation of `T => T` is the identity function that does nothing but return what it is given.
 
-So how can we "know a little more" about the generic type parameter? We can use the `extends` keyword.
+So how can we “know a little more” about the generic type parameter? We can use the `extends` keyword.
 
 ```typescript
 interface Person {
@@ -89,10 +88,9 @@ function getTheLength<T extends Person>(person: T): T {
 }
 ```
 
-Here we don't know exactly what `T` is but we know that it at least has the properties of a `Person`.
+Here we don’t know exactly what `T` is but we know that it at least has the properties of a `Person`.
 
 ## `extends` with unions and functions
-
 When extending interfaces we just get more properties which is quite intuitive. But what about for `union` types?
 
 ```typescript
@@ -169,3 +167,6 @@ test((a: Superman) => superman) // Error
 The function passed to `test` can expect to receive a `Person`. But if it happens to only need a `LivingThing`, that is fine since a `Person` is a `LivingThing`, so the function should not care.
 
 The function is also expected to return `Person`. But if it happens to return a `Superman`, that is also fine since `Superman` can do everything a `Person` can do, so the consumer of the result shouldn't care.
+
+## Conclusion
+It helps to think of extends in terms of “extending functionality”. Extending an object type feels like a **superset** kind of relation only because an object has more functionality the more properties it has. Extending a union type feels more like a **subset** kind of relation as the more types that are “unioned” together, the less you know about the type and the less functionality you can assume. Functions are a little more complicated but it helps to think about “who should be concerned” with a particular type, the function implementation, or the consumer of the result.

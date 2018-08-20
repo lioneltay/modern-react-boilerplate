@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Switch, Route, Link, withRouter } from "react-router-dom"
+import { Switch, Route, Redirect} from "react-router-dom"
 import { asyncComponent } from "lib/async-component"
 import styled from "styled-components"
 import { Helmet } from "react-helmet"
@@ -78,14 +78,15 @@ export default class RootPage extends React.Component {
       <div>
         <Helmet title="Lionel Tay" />
 
-        <Header>
+        {/* <Header>
           <Link to="/">Home</Link>
           <Link to="/blog">Blog</Link>
           <Link to="/editor-themes">Editor Themes</Link>
-        </Header>
+        </Header> */}
 
         <Switch>
-          <Route exact path="/" component={Content} />
+          {/* <Route exact path="/" component={Content} /> */}
+          <Route exact path="/" render={() => <Redirect to="/blog" />} />
           <Route path="/blog" component={BlogPage} />
           <Route path="/editor-themes" component={EditorThemesPage} />
           <Route render={() => <div>Not Found</div>} />

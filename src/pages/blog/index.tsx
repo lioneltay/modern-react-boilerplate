@@ -16,7 +16,7 @@ class Content extends React.Component {
       <div>
         <Helmet title="Lionel Tay - Blog" />
 
-        <h1>Blog</h1>
+        {/* <h1>Blog</h1> */}
 
         <BlogLinks>
           {blogs.map(blog => (
